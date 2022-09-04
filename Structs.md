@@ -23,12 +23,12 @@ struct costumer{        // "struct" is the keyword, "costumer" is the structure 
 ```
 
 ### Using a struct
-When we use the structure we made, it's necessary to create a variable of the **"costumer"** type, and then we can use it as a group and other variables could be **referred** to by using **dot notation**.
+When we use the structure we made, it's necessary to create a variable of the **"costumer"** type, and then we can use it as a group and other variables could be **referred** to by using **dot notation (.)**.
 
 ```C
 // costumer.c
 
-struct costumer jojo;    // defining a variable "jojo" of data type "costumer"
+struct costumer jojo;    // declaring a variable "jojo" of data type "costumer"
 
 strcpy(jojo.first_name, "Joseph");
 strcpy(jojo.last_name, "Joestar");
@@ -38,8 +38,8 @@ jojo.checkout_price = 230.5;
 printf("%s %s, %d years old, has a chekout of $%.2f\n", jojo.first_name, jojo.last_name, jojo.age, jojo.checkout_price);
 ```
 
-### Another way to declare a Struct
-We can declare a Struct and separately assign a variable of their type. But it's also possible to declare a variable at the moment we create a structure.
+### Another way to declare a Struct variable
+We can define a Struct and separately declare a variable of their type. But it's also possible to declare a variable at the moment we create a structure.
 
 ```C
 // costumer.c
@@ -51,13 +51,13 @@ struct costumer{
     int security_number;
     int age;
     float checkout_price;
-} jojo;
+} jojo;     // variable of costumer type
 ```
 Warning: In C++, the struct keyword is optional before in declaration of a variable. In C, it is mandatory.
 
 ### Initializing Structs
-We can't initialize a struct when declaring it. It's **only possible** to do it with a **declared struct variable** inside a **function** through **curly braces ({})**. 
-We can use the order of the struct members declarations to initialize them or use designated declaration.
+We can't initialize a struct when defining it. It's **only possible** to do it with a **declared struct variable** inside a **function** through **curly braces ({})**. 
+We can use the **order of the struct members declarations** to initialize them or use **designated declaration**.
 
 #### Initializing through order of declaration
 ```C
@@ -145,12 +145,12 @@ int main(){
 ```
 
 ### Limitations of Structs in C
-*   We cannot use operators like +,- etc. on Structure variables;
-*   C Structures do not permit data hiding. Structure members can be accessed by any function, anywhere in the scope of the Structure;
-*   C structures do not permit functions inside Structure;
+*   We cannot use operators like +, -, etc. on Structure variables;
+*   C Structures do not permit data hiding. Structure members can be accessed by any function, anywhere in their scope;
+*   C Structures do not permit functions inside them;
+*   C Structures cannot have constructor inside them;
 *   C Structures cannot have static members inside their body;
-*   C Programming language do not support access modifiers. So they cannot be used in C Structures;
-*   Structures in C cannot have constructor inside Structures.
+*   C Programming language do not support access modifiers. So they cannot be used in C Structures.
 
 ## References
 *   https://www.thedshandbook.com
