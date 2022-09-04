@@ -59,7 +59,7 @@ Aviso: Em C++, a palavra-chave struct é opcional antes da declaração de uma v
 Não podemos inicializar uma struct ao definí-la. **Apenas é possível** fazê-lo com uma **variável** do tipo **struct** **declarada** dentro de uma **função** a partir do uso de **chaves ({})**.
 Podemos usar a **ordem de declaração dos membros** da struct para inicializá-las ou usar **declaração designada**.
 
-#### Inicializando a partir da ordem de claração
+#### Inicializando a partir da ordem de declaração
 ```C
 // dinheiro.c
 
