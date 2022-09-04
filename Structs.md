@@ -51,7 +51,7 @@ struct costumer{
     int security_number;
     int age;
     float checkout_price;
-} jojo;
+} jojo;     // variable of costumer type
 ```
 Warning: In C++, the struct keyword is optional before in declaration of a variable. In C, it is mandatory.
 
@@ -146,11 +146,11 @@ int main(){
 
 ### Limitations of Structs in C
 *   We cannot use operators like +,- etc. on Structure variables;
-*   C Structures do not permit data hiding. Structure members can be accessed by any function, anywhere in the scope of the Structure;
-*   C structures do not permit functions inside Structure;
+*   C Structures do not permit data hiding. Structure members can be accessed by any function, anywhere in their scope;
+*   C Structures do not permit functions inside them;
+*   C Structures cannot have constructor inside them;
 *   C Structures cannot have static members inside their body;
-*   C Programming language do not support access modifiers. So they cannot be used in C Structures;
-*   Structures in C cannot have constructor inside Structures.
+*   C Programming language do not support access modifiers. So they cannot be used in C Structures.
 
 ## References
 *   https://www.thedshandbook.com
