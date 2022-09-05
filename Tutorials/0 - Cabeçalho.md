@@ -12,7 +12,7 @@ Você irá incluir **"#ifndef/define FILENAME_H_"** e **"#endif"** no seu códig
 // nomedoarquivo.h
 
 #ifndef NOMEDOARQUIVO_H_     //se não está definido,
-#define NOMEDOARQUIVO_H_              //então define
+#define NOMEDOARQUIVO_H_             //então define
 
 void subtraia (int, int);
 void divida (int, int);
