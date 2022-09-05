@@ -7,12 +7,12 @@
 
 
 typedef struct tNode{
-    int data;
-    tNode *next;
+    data;
+    tNode * next;
 } tNode;
 
 typedef struct tSingly_List{
-    tNode *head;
+    tNode * head;
     int total_nodes;
 } tSingly_List;
 
@@ -23,7 +23,7 @@ typedef struct tSingly_List{
 tNode * create_node(tNode * node, int data_value){
     node = (tNode *)malloc(sizeof(tNode));
 
-    if (node == NULL){
+    if(node == NULL){
         printf("couldn't allocate node :(\n");
         return NULL;
     }
