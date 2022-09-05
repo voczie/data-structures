@@ -131,7 +131,7 @@ Type Definition (typedef) is a command that allows the definition of a new type.
 ```C
 // hair.c
 
-typedef struct{
+typedef struct hair{
     char color[15];
     char type[3];
     int length_cm;

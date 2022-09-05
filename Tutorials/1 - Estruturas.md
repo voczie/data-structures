@@ -131,7 +131,7 @@ Definição de Tipo (typedef) é um comando que permite a definição de um novo
 ```C
 // cabelo.c
 
-typedef struct{
+typedef struct cabelo{
     char cor[15];
     char tipo[3];
     int tamanho_cm;

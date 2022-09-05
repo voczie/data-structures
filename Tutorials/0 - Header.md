@@ -44,13 +44,13 @@ Note that in the code block above, the include of your filename.h uses quotes ("
 Your header file, if you're using quotes, **NEEDS** to be in the same folder of your main file and your source file.
 
 ### Include it in main file
-To use your new header file, it'll be necessary to include "stdio.h" in order to use the function "printf()" that you called in the code above (filename.c). You'll have to include, also, your "filename.h". 
+To use your new header file, it'll be necessary to include "stdio.h" in order to use the function "printf()" that you called in the code above (filename.c). You'll have to include, also, your "filename.c". 
 
 ```C
 // main.c
 
 #include <stdio.h>      //there's no problem in re-including stdio.h
-#include "filename.h"
+#include "filename.c"
 
 int main(){
     subtract(3, 2);

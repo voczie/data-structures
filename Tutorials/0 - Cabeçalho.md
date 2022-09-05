@@ -46,13 +46,13 @@ Note que no bloco de código acima, a inclusão do seu nomedoarquivo.h usa aspas
 Seu arquivo de cabeçalho, se você estiver usando aspas, **PRECISA** estar no mesmo diretório do seu arquivo main e do seu arquivo fonte.
 
 ### Inclua no arquivo main
-Para usar seu novo arquivo de cabeçalho, será necessário incluir "stdio.h" para poder chamar a função "printf()" que você utilizou no código acima (nomedoarquivo.c). Você terá de incluir, também, seu "nomedoarquivo.h"
+Para usar seu novo arquivo de cabeçalho, será necessário incluir "stdio.h" para poder chamar a função "printf()" que você utilizou no código acima (nomedoarquivo.c). Você terá de incluir, também, seu "nomedoarquivo.c"
 
 ```C
 // main.c
 
 #include <stdio.h>      //não há problema em reincluir stdio.h
-#include "nomedoarquivo.h"
+#include "nomedoarquivo.c"
 
 int main(){
     subtraia(3, 2);
