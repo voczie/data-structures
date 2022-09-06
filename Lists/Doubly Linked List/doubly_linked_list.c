@@ -138,3 +138,35 @@ int insert_at_position(tDoubly_List * list, int data_value, int index){
     }
 }
 
+int remove_at_position(tDoubly_List * list, int index){
+    int i = 1;
+    tNode * control_node = list->head;
+    tNode * remove_node;
+
+    if(index == 0 || index > get_list_size(list)){
+        printf("not a valid index\n");
+        return 0;
+    }
+
+    if(index == 1){
+        remove_node = control_node;
+        list->head = remove_node->next;
+    }
+
+    else{
+        for(i; i < index - 1; i++){ 
+                if(control_node->next == NULL){
+                    break;
+                }
+                control_node = control_node->next;
+        }
+        remove_node = control_node->next;
+        control_node->next = remove_node->next;
+    }
+
+    free(remove_node);
+
+    list->total_nodes--;
+
+    return 1;
+}
