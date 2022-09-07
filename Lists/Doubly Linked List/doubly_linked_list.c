@@ -32,7 +32,7 @@ tNode * create_node(tNode * node, int data_value){
     node->next = NULL;
     node->previous = NULL;
 
-    pritnf("memory allocated node, value = %d\n", node->data);
+    printf("memory allocated node, value = %d\n", node->data);
 
     return node;
 }
@@ -127,6 +127,7 @@ int insert_at_position(tDoubly_List * list, int data_value, int index){
                 node_get_position = node_get_position->next;
             }
             printf("\ni = %d, node data = %d\n\n", i, node_get_position->data);
+
             new_node->previous = node_get_position;
             new_node->next = node_get_position->next;
             node_get_position->next = new_node;
@@ -161,7 +162,9 @@ int remove_at_position(tDoubly_List * list, int index){
                 control_node = control_node->next;
         }
         remove_node = control_node->next;
+
         control_node->next = remove_node->next;
+        remove_node->next->previous = control_node;
     }
 
     free(remove_node);
@@ -169,4 +172,34 @@ int remove_at_position(tDoubly_List * list, int index){
     list->total_nodes--;
 
     return 1;
+}
+
+void print_list(tDoubly_List * list){
+    int i = 1;
+    tNode * node_print = list->head;
+
+    for(i; i <= get_list_size(list); i++){
+        if(node_print->next == NULL){
+            printf("index = %d, data = %d\n", i, node_print->data);
+            break;
+        }
+        else{
+            printf("index = %d, data = %d\n", i, node_print->data);
+            node_print = node_print->next;
+        }
+    }
+    printf("\n");
+}
+
+void free_list(tDoubly_List * list){
+    int i = 1, list_size = get_list_size(list);
+
+    printf("starting to clean...\n");
+    for(i; i <= list_size;){
+        printf("actual size = %d, i = %d\n", list_size, i);
+
+        remove_at_position(list, list_size);
+        list_size--;
+    }
+    printf("list cleaned!\n");
 }
