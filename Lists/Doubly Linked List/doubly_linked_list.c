@@ -204,6 +204,7 @@ void free_list(tDoubly_List * list){
         printf("actual size = %d, i = %d\n", list_size, i);
         remove_at_position(list, list_size);
     }
+    
     printf("list cleaned!\n");
-    free(list);
+    list->head = NULL;
 }
