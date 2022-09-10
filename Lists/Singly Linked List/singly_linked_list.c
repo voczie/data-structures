@@ -7,7 +7,7 @@
 
 
 typedef struct tNode{
-    data;
+    int data;
     tNode * next;
 } tNode;
 
