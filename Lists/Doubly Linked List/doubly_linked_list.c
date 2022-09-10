@@ -149,9 +149,9 @@ int remove_at_position(tDoubly_List * list, int index){
         return 0;
     }
 
-    if(index == 1){
+    else if(index == 1){
         remove_node = control_node;
-        list->head = remove_node->next;
+        control_node = remove_node->next;
     }
 
     else{
@@ -159,15 +159,17 @@ int remove_at_position(tDoubly_List * list, int index){
                 if(control_node->next == NULL){
                     break;
                 }
-                
                 control_node = control_node->next;
         }
         remove_node = control_node->next;
-
-        control_node->next = remove_node->next;
-        remove_node->next->previous = control_node;
+        if(remove_node->next == NULL){
+            control_node->next == NULL;
+        }
+        else{
+            control_node->next = remove_node->next; 
+        }
+        control_node->next->previous = control_node;
     }
-
     free(remove_node);
 
     list->total_nodes--;
@@ -198,9 +200,10 @@ void free_list(tDoubly_List * list){
     printf("starting to clean...\n");
     for(i; i <= list_size;){
         printf("actual size = %d, i = %d\n", list_size, i);
-
+        list_size = get_list_size(list);
+        printf("actual size = %d, i = %d\n", list_size, i);
         remove_at_position(list, list_size);
-        list_size--;
     }
     printf("list cleaned!\n");
+    free(list);
 }

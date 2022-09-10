@@ -48,6 +48,7 @@ int main(){
         printf("the list is empty!\n");
     }
     else{
+        print_list(p_doubly_list);
         printf("the list is not empty\n");
     }
 
