@@ -6,9 +6,9 @@
 
 
 typedef struct tNode{
-    tNode * previous;
+    tNode* previous;
     int data;
-    tNode * next;
+    tNode* next;
 } tNode;
 
 typedef struct tCircular_List{
@@ -21,7 +21,7 @@ typedef struct tCircular_List{
 
 
 tNode * create_node(tNode * node, int data_value){
-    node = (tNode *)malloc(sizeof(tNode));
+    node = (tNode*)malloc(sizeof(tNode));
 
     if(node == NULL){
         printf("couldn't allocate node :(\n");
@@ -115,7 +115,9 @@ int insert_at_position(tCircular_List * list, int data_value, int index){
             return 0;
         }
 
-        if(index == 1){
+        else if(index == 1){
+            new_node->previous = node_get_position->previous;
+            new_node->next = node_get_position;
             list->head = new_node;
         }
 
@@ -129,7 +131,14 @@ int insert_at_position(tCircular_List * list, int data_value, int index){
             printf("\ni = %d, node data = %d\n\n", i, node_get_position->data);
 
             new_node->previous = node_get_position;
-            new_node->next = node_get_position->next;
+
+            if(index == get_list_size(list)){
+                new_node->next = list->head;
+            }
+            else{
+                new_node->next = node_get_position->next;
+            }
+            
             node_get_position->next = new_node;
         }
 
@@ -150,8 +159,11 @@ int remove_at_position(tCircular_List * list, int index){
     }
 
     else if(index == 1){
-        remove_node = control_node;
-        control_node = remove_node->next;
+        remove_node = list->head;
+
+        control_node = remove_node->previous;
+        list->head = list->head->next;
+        list->head->previous = control_node;
     }
 
     else{
@@ -161,15 +173,19 @@ int remove_at_position(tCircular_List * list, int index){
                 }
                 control_node = control_node->next;
         }
+
         remove_node = control_node->next;
-        if(remove_node->next == NULL){
-            control_node->next == NULL;
+
+        if(remove_node->next == list->head){
+            control_node->next = list->head;
+            list->head->previous = control_node;
         }
         else{
             control_node->next = remove_node->next; 
+            remove_node->next->previous = control_node;
         }
-        control_node->next->previous = control_node;
     }
+    
     free(remove_node);
 
     list->total_nodes--;

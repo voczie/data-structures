@@ -161,15 +161,19 @@ int remove_at_position(tDoubly_List * list, int index){
                 }
                 control_node = control_node->next;
         }
+
         remove_node = control_node->next;
+
         if(remove_node->next == NULL){
-            control_node->next == NULL;
+            control_node->next = NULL;
         }
         else{
             control_node->next = remove_node->next; 
         }
-        control_node->next->previous = control_node;
+
+        remove_node->next->previous = control_node;
     }
+    
     free(remove_node);
 
     list->total_nodes--;
