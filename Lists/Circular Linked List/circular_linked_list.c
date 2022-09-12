@@ -114,6 +114,10 @@ int insert_at_position(tCircular_List * list, int data_value, int index){
             printf("not a valid index\n");
             return 0;
         }
+        
+        else if(list->total_nodes == 0){
+            list->head = new_node;
+        }
 
         else if(index == 1){
             new_node->previous = node_get_position->previous;
@@ -185,7 +189,7 @@ int remove_at_position(tCircular_List * list, int index){
             remove_node->next->previous = control_node;
         }
     }
-    
+
     free(remove_node);
 
     list->total_nodes--;
@@ -198,7 +202,7 @@ void print_list(tCircular_List * list){
     tNode * node_print = list->head;
 
     for(i; i <= get_list_size(list); i++){
-        if(node_print->next == NULL){
+        if((node_print->next == list->head) || (node_print->next == NULL)){
             printf("index = %d, data = %d\n", i, node_print->data);
             break;
         }
