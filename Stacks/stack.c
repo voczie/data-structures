@@ -72,7 +72,7 @@ int push(tStack * stack, int data_value){
         new_node->beneath = stack->top;
         stack->top = new_node;
 
-        printf("\nstack size = %d, node data = %d\n\n", get_stack_size(stack), stack->top);
+        printf("\nstack size = %d, node data = %d\n\n", get_stack_size(stack), stack->top->data);
         
         stack->total_nodes++;
 
