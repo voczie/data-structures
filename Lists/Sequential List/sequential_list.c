@@ -79,7 +79,7 @@ int insert_at_position(tSequential_List * list, int data_value, int index){
 int remove_at_position(tSequential_List * list, int index){
     int removed_value, list_size = get_list_size(list) - 1;
 
-    if(index <= list_size){
+    if(index >= list_size){
         printf("there's nothing at index %d to be removed!\n", index);
         return -1;
     }
@@ -87,7 +87,7 @@ int remove_at_position(tSequential_List * list, int index){
         removed_value = list->data[index];
 
         for(index; index <= list_size; index++){
-            list->data[list_size - 1] = list->data[list_size];
+            list->data[index] = list->data[index + 1];
         }
 
         list->total_elements--;
@@ -102,9 +102,4 @@ void print_list(tSequential_List * list){
     for(i; i < list_size; i++){
         printf("index = %d, data = %d\n", i, list->data[i]);
     }
-}
-
-void free_list(tSequential_List * list){
-    free(list);
-    printf("list cleaned!\n");
 }
